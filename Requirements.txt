@@ -1,0 +1,4 @@
+ Team: Code Brigade 1.0
+ The requirements for running this is:
+ 1> PhpMyadmin
+ 2> Creating a database named agriculture.

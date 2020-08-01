@@ -48,5 +48,5 @@ $result = mysqli_query($connect, $sql);
     </form>
    </div>  
   </div>  
- </body>  
+ </body>   
 </html>

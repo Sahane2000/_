@@ -5,5 +5,5 @@ if (isset($_SESSION['name'])) {
 }
 
 session_destroy();
-header('location:login.php');
+header('location:main.php');
 ?>

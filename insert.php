@@ -146,6 +146,27 @@ $conn->close();
 <title>Registration Form</title>
 <link rel="stylesheet" type="text/css" href="styles.css">
 <style>
+body {
+  background-image: url('img.jpeg');
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-size:cover;
+  height:600px;
+}
+table,tr{
+  border:1px solid black;
+  
+  border-spacing:5px;
+  background-color:#dfcfbe;
+}
+td
+{
+  font-family:Arial;
+  font-size:15pt;
+}
+</style>
+
+<style>
 input,textarea{width:200px}
 input[type=radio],input[type=checkbox]{width:10px}
 input[type=submit],input[type=reset]{width:100px}
@@ -158,7 +179,7 @@ input[type=submit],input[type=reset]{width:100px}
 | <a href="view1.php">view inserted New Record</a> 
 | <a href="logout.php">Logout</a></h3>
 <h1>Insert Your Info</h1>
-<table width="393" border="1"align="center">
+<table width="500" border="1"align="center">
 
  <tr>
     <td colspan="2"><?php echo @$msg; ?></td>
@@ -251,8 +272,8 @@ input[type=submit],input[type=reset]{width:100px}
     <td><input type="text" pattern="[0-9]*" name="date1" /></td>
   </tr>
     <td colspan="4" align="center">
-    <input type="submit"name="submit" class="button" value="Submit"<a href="dashboard1.php"></a></input>
-    <input type="reset" name="reset" class="button<a href='view1.php'>View Inserted  Record</a>";
+    <input type="submit"name="submit" class="btn btn-success"  value="Submit"><a href="dashboard1.php"></a></input>
+    <input type="reset" name="reset" class="btn btn-success"></input>";
   
     </td>
   </tr>
@@ -260,5 +281,3 @@ input[type=submit],input[type=reset]{width:100px}
 </table>
 </body>
 </html>
-
-

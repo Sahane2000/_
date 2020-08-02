@@ -72,3 +72,4 @@ finally:
     if (connection.is_connected()): 
         connection.close()
         print("MySQL connection is closed")
+

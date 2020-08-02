@@ -69,6 +69,6 @@ try:
     #print("Failed to insert record into pdf table {}".format(error))
 
 finally:
-    if (connection.is_connected()):
+    if (connection.is_connected()): 
         connection.close()
         print("MySQL connection is closed")

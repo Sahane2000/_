@@ -9,7 +9,7 @@ from mysql.connector import errorcode
 #importing packages
 
 from keras.preprocessing.image import ImageDataGenerator
-from keras.models import Sequential
+from keras.brigades import Sequential
 from keras.layers import Conv2D, MaxPooling2D
 from keras.layers import Activation, Dropout, Flatten, Dense #creation of layers
 from keras import backend as K              #for understanding rgb and channel
@@ -62,51 +62,51 @@ validation_generator = test_datagen.flow_from_directory(
 
 #Making of a nural network  for processing
 
-Model = Sequential()
-Model.add(Conv2D(32, (3,3), input_shape=input_shape))
-Model.add(Activation('relu')) # replaces the negative value in the pixel map with zero
-Model.add(MaxPooling2D(pool_size=(2,2)))
+brigade = Sequential()
+brigade.add(Conv2D(32, (3,3), input_shape=input_shape))
+brigade.add(Activation('relu')) # replaces the negative value in the pixel map with zero
+brigade.add(MaxPooling2D(pool_size=(2,2)))
 
-Model.summary()
+brigade.summary()
 
-Model.add(Conv2D(32, (3,3)))
-Model.add(Activation('relu'))
-Model.add(MaxPooling2D(pool_size=(2,2)))
+brigade.add(Conv2D(32, (3,3)))
+brigade.add(Activation('relu'))
+brigade.add(MaxPooling2D(pool_size=(2,2)))
 
-Model.add(Conv2D(64, (3,3)))
-Model.add(Activation('relu'))
-Model.add(MaxPooling2D(pool_size=(2,2)))
+brigade.add(Conv2D(64, (3,3)))
+brigade.add(Activation('relu'))
+brigade.add(MaxPooling2D(pool_size=(2,2)))
 
 
-Model.add(Flatten())
-Model.add(Dense(64))  #creating a dense layer with 64 units
-Model.add(Activation('relu'))
-Model.add(Dropout(0.5))
-Model.add(Dense(1))
-Model.add(Activation('sigmoid'))
+brigade.add(Flatten())
+brigade.add(Dense(64))  #creating a dense layer with 64 units
+brigade.add(Activation('relu'))
+brigade.add(Dropout(0.5))
+brigade.add(Dense(1))
+brigade.add(Activation('sigmoid'))
 
-Model.summary()
+brigade.summary()
 
-Model.compile(loss='binary_crossentropy',
+brigade.compile(loss='binary_crossentropy',
 		optimizer='rmsprop',
 		metrics=['accuracy'])
 
 
-Model.fit_generator(
+brigade.fit_generator(
 	train_generator,
 	steps_per_epoch=nb_train_samples // batch_size,
 	epochs=epochs,
 	validation_data=validation_generator,
 	validation_steps=nb_validation_samples // batch_size)
 
-Model.save_weights('first_try.h5')
+brigade.save_weights('first_try.h5')
 
 img_pred = image.load_img('crop.jpg', target_size = (150,150))
 img_pred = image.img_to_array(img_pred)
 img_pred = np.expand_dims(img_pred, axis = 0)
 
 
-rslt = Model.predict(img_pred)
+rslt = brigade.predict(img_pred)
 print(rslt)	
 print(prediction)
 

@@ -107,22 +107,25 @@ if ($uploadOk == 0)
 }
 
      $name = $_POST['name'];
-     $address = $_POST['address'];
+     
      $mobile1 = $_POST['mobile1'];
      $region= $_POST['region'];
+     $taluka = $_POST['taluka'];
+     $village = $_POST['village'];
       $sno= $_POST['sno'];
        $aiker= $_POST['aiker'];
         $type= $_POST['type'];
          $crop= $_POST['crop'];
-         
-        
+          $stype= $_POST['stype'];
+          $climate_zone= $_POST['climate_zone'];
+          $well= $_POST['well'];
           $stage= $_POST['stage'];
           $humidity= $_POST['humidity'];
           $date1= $_POST['date1'];
 
 
 
-$sql1 ="insert into farmerinfo(name,address,mobile1,region,sno,aiker,type,crop,imgname,pdfname,stage,humidity,date1) values ('$name','$address','$mobile1','$region','$sno','$aiker','$type','$crop','$imgname','$filename','$stage','$humidity','$date1')";
+$sql1 ="insert into farmerinfo(name,mobile1,region,taluka,village,sno,aiker,type,crop,stype,climate_zone,well,imgname,pdfname,stage,humidity,date1) values ('$name','$mobile1','$region','$taluka','$village','$sno','$aiker','$type','$crop','$stype','$climate_zone','$well','$imgname','$filename','$stage','$humidity','$date1')";
 
 
 if ($conn->query($sql1)=== TRUE) 
@@ -189,23 +192,37 @@ input[type=submit],input[type=reset]{width:100px}
     <td width="218">
     <input type="text" placeholder="Your Name"  name="name" pattern="[a-z A-Z]*" required /></td>
   </tr>
-  <tr>
-    <td>Enter your Address</td>
-    <td><textarea name="address" placeholder="Your Address" ></textarea></td>
-  </tr>
+ 
    <tr>
     <td>Enter Your Mobile</td>
     <td><input type="text"  name="mobile1" pattern="[0-9]*" required/></td>
   </tr> 
   </tr>
   <tr>
-    <td height="23">Select Your Region</td>
+    <td>Choose District</td>
     <td>
-  Nagar<input type="radio" name="region" value="nagar"/>
-  Nashik<input type="radio" name="region" value="nashik"/>
-  Akole<input type="radio" name="region" value="akole"/>
-  Sangamner<input type="radio" name="region" value="sangamner"/>
+    <select id="region" name="region">
+    <option value="nashik">   Nashik </option>
+     <option value="nagar">   Nagar </option>
   </td>
+  </tr>
+  <tr>
+    <td>Choose Taluka</td>
+    <td>
+    <select id="taluka" name="taluka">
+    <option value="nashik">Nashik</option>
+     <option value="nagar">Nagar</option>
+    <option value="sangamner">Sangamner</option>
+     <option value="sinnar">Sinnar</option>
+      <option value="Akole">Akole</option>
+     <option value="kopergoan">Kopergoan</option>
+      <option value="dindori">Dindori</option>
+     <option value="parner">Parner</option>
+  </td>
+  </tr>
+   <tr>
+    <td>Enter Village</td>
+    <td><textarea name="village" placeholder="Your Village" ></textarea></td>
   </tr>
     <tr>
     <td>Enter Your(7/12) Number</td>
@@ -236,6 +253,32 @@ input[type=submit],input[type=reset]{width:100px}
   Cotton<input type="radio" name="crop" value="Cotton"/>
 
   </td>
+  </tr>
+   <tr>
+    <td>Choose Soil Type</td>
+    <td>
+    <select id="stype" name="stype">
+    <option value="Sandy">Sandy</option>
+     <option value="sandy loam">Sandy Loam</option>
+      <option value="loam">Loam</option>
+       <option value="dry loam">Dry Loam</option>
+       
+  </td>
+  </tr>
+   <tr>
+    <td>Choose Climate</td>
+    <td>
+    <select id="climate_zone" name="climate_zone">
+    <option value="Desser_arid">Desser_arid</option>
+     <option value=" Semi_arid">Semi_arid</option>
+      <option value="Sub_Humid">Sub_humid</option>
+       <option value="Humid">Humid</option>
+       
+  </td>
+  </tr>
+  <tr>
+    <td>If well avaliable enter available water in mm</td>
+    <td><input type="text" pattern="[0-9]*" name="well" /></td>
   </tr>
   <tr>
     <td>
@@ -273,6 +316,7 @@ input[type=submit],input[type=reset]{width:100px}
   </tr>
     <td colspan="4" align="center">
     <input type="submit"name="submit" class="btn btn-success"  value="Submit"><a href="dashboard1.php"></a></input>
+     <input type="submit"name="validate" class="btn btn-success"  value="Validate"><a href="validateuser.php"></a></input>
     <input type="reset" name="reset" class="btn btn-success"></input>";
   
     </td>
